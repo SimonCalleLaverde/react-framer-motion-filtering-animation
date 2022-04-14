@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from "react";
-import Movie from "./Movie";
+import Movie from "./components/Movie";
 
 function App() {
   const apiKey = "https://api.themoviedb.org/3/movie/popular?api_key=7ecbc6dd03734a3a6fa0376b6698f57f&language=en-US&page=1";
@@ -17,7 +17,7 @@ function App() {
     const data = await fetch(`${apiKey}`);
     const moviesJson = await data.json();
 
-    //console.log(moviesJson);
+    console.log(moviesJson);////
     setPopular(moviesJson.results);
   };
 
@@ -29,7 +29,7 @@ function App() {
 
       <div className="popular-movies">
         {popular.map(movie => {
-          return <Movie/>;
+          return <Movie key={movie.id} movie={movie}/>;
         })}
       </div>
 
