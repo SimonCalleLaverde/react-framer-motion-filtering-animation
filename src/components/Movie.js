@@ -1,8 +1,8 @@
 function Movie({movie}) {
 	return (
 		<div>
-			<h2>{movie.title}</h2>
-			<img src={"https://image.tmdb.org/t/p/w300" + movie.backdrop_path} alt=""/>{/*//(width)w500//original*/}{/*poster_path*/}
+			<h4>{movie.title}</h4>
+			<img src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} alt=""/>{/*//Width//w500//original*/}{/*backdrop_path*/}
 		</div>
 	)
 };
