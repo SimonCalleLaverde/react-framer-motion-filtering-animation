@@ -8,7 +8,8 @@ function App() {
 
   // [useState] Basically A Variable And A Js Setter // Data Returned Is An Array Of Objects
   const [popular, setPopular] = useState([]);
-  //const [filtered, //setFiltered] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+  const [activeGenre, setActiveGenre] = useState(0);//All
 
   // [useEffect] Running "fetchPopular" When Page Renders
   useEffect(() => {
@@ -19,23 +20,20 @@ function App() {
     const data = await fetch(`${apiKey}`);
     const moviesJson = await data.json();
 
-    console.log(moviesJson);////
+    //console.log(moviesJson);
+    //console.log(moviesJson.results);
     setPopular(moviesJson.results);
-    //setFiltered(moviesJson.results);
+    setFiltered(moviesJson.results);
   };
 
   return (
     <div className="App">
       {/*<h1>Hello</h1>*/}
 
-
-
-      <Filter/>
-
-
+      <Filter popular={popular} setFiltered={setFiltered} activeGenre={activeGenre} setActiveGenre={setActiveGenre}/>
 
       <div className="popular-movies">
-        {popular.map(movie => {
+        {filtered.map(movie => {//popular
           return <Movie key={movie.id} movie={movie}/>;
         })}
       </div>
