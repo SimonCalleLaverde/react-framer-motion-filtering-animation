@@ -2,6 +2,7 @@ import './App.css';
 import { useState, useEffect } from "react";
 import Movie from "./components/Movie";
 import Filter from "./components/Filter";
+import { motion } from "framer-motion";
 
 function App() {
   const apiKey = "https://api.themoviedb.org/3/movie/popular?api_key=7ecbc6dd03734a3a6fa0376b6698f57f&language=en-US&page=1";
@@ -32,11 +33,11 @@ function App() {
 
       <Filter popular={popular} setFiltered={setFiltered} activeGenre={activeGenre} setActiveGenre={setActiveGenre}/>
 
-      <div className="popular-movies">
+      <motion.div layout className="popular-movies">{/*animate={{y: 100}}*/}{/*layout="true"*/}
         {filtered.map(movie => {//popular
           return <Movie key={movie.id} movie={movie}/>;
         })}
-      </div>
+      </motion.div>
     </div>
   );
 }
