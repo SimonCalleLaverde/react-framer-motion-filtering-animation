@@ -5,7 +5,7 @@ function Movie({movie}) {
 	//let iterations = movie.genre_ids.length;
 
 	return (
-		<motion.div layout>
+		<motion.div animate={{opacity: 1, scale: 1}} intial={{opacity: 0, scale: 0.5}} exit={{opacity: 0, scale: 0.5}} transition={{duration: 0.3}} layout>
 			<h4>{movie.title}</h4>
 
 			{/* Width (e.g. "w500" / "original") */}
